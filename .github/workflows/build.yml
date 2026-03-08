@@ -1898,15 +1898,16 @@ jobs:
           if [ -f "$CONFIG_PATH" ]; then
             echo "🎯 Found Config: $CONFIG_PATH"
             
-            # 檢查是否已經存在 CAKE 設定
-            if grep -q "CONFIG_NET_SCH_CAKE" "$CONFIG_PATH"; then
+            # 檢查是否已經存在 CAKE 設定 (★ 同步相容 =y 或 =m)
+            if grep -qE "CONFIG_NET_SCH_CAKE=[ym]" "$CONFIG_PATH"; then
               echo "⚠️ CAKE module is already enabled in config."
             else
               echo "🔧 Injecting CAKE module..."
               
-              # 在 FQ_CODEL 之後插入 CAKE
-              if grep -q "CONFIG_NET_SCH_FQ_CODEL=m" "$CONFIG_PATH"; then
-                sed -i '/CONFIG_NET_SCH_FQ_CODEL=m/a CONFIG_NET_SCH_CAKE=m' "$CONFIG_PATH"
+              # 在 FQ_CODEL 之後插入 CAKE (★ FQ_CODEL 同步相容 =y 或 =m)
+              if grep -qE "CONFIG_NET_SCH_FQ_CODEL=[ym]" "$CONFIG_PATH"; then
+                # sed 搜尋只匹配等號，無縫插入
+                sed -i '/CONFIG_NET_SCH_FQ_CODEL=/a CONFIG_NET_SCH_CAKE=m' "$CONFIG_PATH"
                 echo "✅ Inserted CAKE after FQ_CODEL."
               else
                 # 若找不到 FQ_CODEL，則附加在檔案末尾
@@ -1915,8 +1916,8 @@ jobs:
               fi
             fi
             
-            # 再次驗證
-            if grep -q "CONFIG_NET_SCH_CAKE=m" "$CONFIG_PATH"; then
+            # 再次驗證 (★ 最終驗證同步相容 =y 或 =m)
+            if grep -qE "CONFIG_NET_SCH_CAKE=[ym]" "$CONFIG_PATH"; then
                echo "🎉 CAKE Patch Applied Successfully!"
                echo "📢 Reminder: When you miss Dave, modprobe sch_cake!"
             else
