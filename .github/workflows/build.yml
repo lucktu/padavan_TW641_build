@@ -257,7 +257,7 @@ jobs:
             . variables
           fi
           
-          echo "PADAVAN_REPO=https://github.com/TWShiyuLiou1997/padavan-ng" >> $GITHUB_ENV
+          echo "PADAVAN_REPO=https://github.com/lucktu/padavan-ng_TW641" >> $GITHUB_ENV
           echo "PADAVAN_BRANCH=master" >> $GITHUB_ENV
           echo "PADAVAN_COMMIT=HEAD" >> $GITHUB_ENV
           
