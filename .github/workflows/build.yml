@@ -57,6 +57,8 @@ on:
           - KNDRT31R3
           # LINKSYS
           - EA-8100
+          # MELINKR
+          - KFRouter-S1
           # MQMAKER
           - MQ-WITI-256
           - MQ-WITI-512
