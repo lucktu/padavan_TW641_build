@@ -315,12 +315,7 @@ jobs:
             # 1. [體積優化] 強制開啟 Size Optimization
             sed -i "s/#CONFIG_CC_OPTIMIZE_FOR_SIZE=y/CONFIG_CC_OPTIMIZE_FOR_SIZE=y/g" "$FINAL_CONFIG"
          
-            # 2. [基礎切除] 停用 USB, 檔案系統, Swap, 媒體驅動
-            for feat in USB ANTFS FAT EXFAT EXT2 EXT3 EXT4 XFS HFS FUSE SWAP BACKPORTED; do
-              sed -i "s/CONFIG_FIRMWARE_ENABLE_${feat}=y/CONFIG_FIRMWARE_ENABLE_${feat}=n/gi" "$FINAL_CONFIG"
-            done
-         
-            # 3. [語言包精準控制] 
+            # 3. [語言包精準控制]
             sed -i "s/CONFIG_FIRMWARE_INCLUDE_LANG_EN=n/CONFIG_FIRMWARE_INCLUDE_LANG_EN=y/g" "$FINAL_CONFIG"
             sed -i "s/#CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/g" "$FINAL_CONFIG"
             sed -i "s/CONFIG_FIRMWARE_INCLUDE_LANG_CN=n/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/g" "$FINAL_CONFIG"
@@ -331,16 +326,15 @@ jobs:
             # 目標：不管該選項原本是 =y, =m, 還是 # is not set，通通強制改為 =n
             echo "::group::Absolute Disable Modules"
             modules=(
-              SSWAN WIREGUARD AMNEZIAWG ZEROTIER EOIP XFRM
+              WIREGUARD AMNEZIAWG ZEROTIER EOIP XFRM
               SHADOWSOCKS XRAY V2RAY TROJAN SSOBFS SINGBOX NAIVEPROXY
               REDSOCKS SRELAY MENTOHUST FRPC FRPS TOR TOR_GEOIP TOR_GEOIPV6
               PRIVOXY NFQWS
-              IPSET DNSCRYPT STUBBY DOH QUIC QUIC_NGTCP2 NDISC6_RDISC6
+              DNSCRYPT STUBBY DOH QUIC QUIC_NGTCP2 NDISC6_RDISC6
               DNSFORWARDER SMARTDNS ADGUARDHOME WPAD
-              ZRAM ADB LUA SQM ALDRIVER SCUTCLIENT GDUT_DRCOM DOGCOM MINIEAP 
+              ZRAM ADB LUA ALDRIVER SCUTCLIENT GDUT_DRCOM DOGCOM MINIEAP 
               NJIT_CLIENT SOFTETHERVPN_SERVER SOFTETHERVPN_CLIENT SOFTETHERVPN_CMD
               DROPBEAR DROPBEAR_FAST_CODE VLMCSD TTYD MSD_LITE
-              DDNS_SSL
             )
          
             for mod in "${modules[@]}"; do
