@@ -278,7 +278,7 @@ jobs:
         run: |
           echo "::group::Git Clone"
           git config --global --add safe.directory '*'
-          git clone -b "$PADAVAN_BRANCH" "$PADAVAN_REPO"
+          git clone -b "$PADAVAN_BRANCH" "$PADAVAN_REPO" padavan-ng
           if [ "$PADAVAN_COMMIT" != "HEAD" ] && [ ! -z "$PADAVAN_COMMIT" ]; then
             git -C padavan-ng checkout "$PADAVAN_COMMIT"
           fi
