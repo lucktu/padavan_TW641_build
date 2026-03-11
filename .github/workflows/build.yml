@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       target_select:
-        description: "選擇機型 (Target Model)"
+        description: "选择机型 (Target Model)"
         required: true
         default: 'TL_C2-V1'
         type: choice
@@ -18,6 +18,77 @@ on:
           - A5-V11_16M
           - A5-V11_4M
           - A5-V11_8M
+          # TOTOLINK
+          - A3004NS
+          # ATEL
+          - ALR-U270
+          # DLINK
+          - DIR-300B1
+          - DIR-300B7
+          - DIR-320B1
+          - DIR-620A1
+          - DIR-620D1
+          - DIR-860L
+          - DIR-882
+          # LINKSYS
+          - EA-8100
+          # BELKIN
+          - F9K1103
+          # GL
+          - GL-MT300A
+          - GL-MT300N
+          - GL-MT300NV2
+          # HIWIFI
+          - HC5661A
+          # MELINKR
+          - KFRouter-S1
+          # ZYXEL
+          - KN-4G3
+          - KN-4G3B
+          - KN-EXTRA
+          - KN-EXTRA2
+          - KN-GIGA3
+          - KN-LITE
+          - KN-LITE2
+          - KN-LITE3
+          - KN-LITE3B
+          - KN-OMNI
+          - KN-OMNI2
+          - KN-START2
+          - KN-ULTRA2
+          - KN-VIVA
+          # KROKS
+          - KNDRT31R26
+          - KNDRT31R3
+          # XIAOMI-U-Boot
+          - MI-4A_100M
+          - MI-4C
+          - MI-MINI
+          - MI-R3Gv2
+          # XIAOMI
+          - MI-3
+          - MI-3C
+          - MI-3_SPI
+          - MI-4
+          - MI-MINI
+          - MI-NANO
+          - MI-R3G
+          - MI-R3G_SPI
+          - MI-R3PRO
+          - MI-R3P_SPI
+          - R2100
+          - RM-AC2100
+          # MQMAKER
+          - MQ-WITI-256
+          - MQ-WITI-512
+          # NEWIFI
+          - NEWIFI-D1
+          - NEWIFI-D2
+          - NEWIFI-MINI
+          - NEWIFI-Y1S
+          # PHICOMM
+          - PSG1218
+          - 256PSG1218
           # ASUS
           - RP-AC56
           - RT-AC1200
@@ -34,44 +105,6 @@ on:
           - RT-N56U
           - RT-N56U-GE2
           - RT-N56UB1
-          # ATEL
-          - ALR-U270
-          # BELKIN
-          - F9K1103
-          # DLINK
-          - DIR-300B1
-          - DIR-300B7
-          - DIR-320B1
-          - DIR-620A1
-          - DIR-620D1
-          - DIR-860L
-          - DIR-882
-          # GL
-          - GL-MT300A
-          - GL-MT300N
-          - GL-MT300NV2
-          # HIWIFI
-          - HC5661A
-          # KROKS
-          - KNDRT31R26
-          - KNDRT31R3
-          # LINKSYS
-          - EA-8100
-          # MQMAKER
-          - MQ-WITI-256
-          - MQ-WITI-512
-          # NEWIFI
-          - NEWIFI-D1
-          - NEWIFI-D2
-          - NEWIFI-MINI
-          - NEWIFI-Y1S
-          # NEXX
-          - WT3020A
-          - WT3020H
-          - WT3020H16M
-          # PHICOMM
-          - 256PSG1218
-          - PSG1218
           # SAMSUNG
           - SWR1100
           # SERCOMM
@@ -84,8 +117,6 @@ on:
           - SNR-ME1
           - SNR-W4N-M
           - SNR-W4N-M_USB
-          # TOTOLINK
-          - A3004NS
           # TPLINK
           - TL_C2-V1
           - TL_C20-V1
@@ -121,26 +152,12 @@ on:
           - U7621-06
           # WALL-AP
           - WALL-AP
-          # XIAOMI-U-Boot
-          - MI-4A_100M
-          - MI-4C
-          - MI-MINI
-          - MI-R3Gv2
-          # XIAOMI
-          - MI-3
-          - MI-3C
-          - MI-3_SPI
-          - MI-4
-          - MI-MINI
-          - MI-NANO
-          - MI-R3G
-          - MI-R3G_SPI
-          - MI-R3PRO
-          - MI-R3P_SPI
-          - R2100
-          - RM-AC2100
           # YOUHUA
           - WR1200JS
+          # NEXX
+          - WT3020A
+          - WT3020H
+          - WT3020H16M
           # YOUKU
           - YK-L1
           - YK-L1C
@@ -153,30 +170,15 @@ on:
           - ZBT-WR8305RT
           # ZTE
           - ZTE_E8820S
-          # ZYXEL
-          - KN-4G3
-          - KN-4G3B
-          - KN-EXTRA
-          - KN-EXTRA2
-          - KN-GIGA3
-          - KN-LITE
-          - KN-LITE2
-          - KN-LITE3
-          - KN-LITE3B
-          - KN-OMNI
-          - KN-OMNI2
-          - KN-START2
-          - KN-ULTRA2
-          - KN-VIVA
       
       language_select:
-        description: "WebUI 語言設定 (Custom Language Selector)"
+        description: "WebUI 语言设定 (Custom Language Selector)"
         required: true
         type: choice
         default: 'English_Only'
         options:
           - English_Only
-          - CN (繁體中文)
+          - CN (简体中文)
           - RU (Pусский)
           - BR (Brazil)
           - CZ (Česky)
@@ -191,12 +193,12 @@ on:
           - UK (Українська)
       
       nanoversion:
-        description: "開啟極限瘦身 (Nano Optimization)"
+        description: "开启极限瘦身 (Nano Optimization)"
         type: boolean
         default: true
 
       customization:
-        description: '自訂預設配置 JSON (Custom Default Configuration Wi-Fi/Passwords/IP)'
+        description: '自定义设置 JSON (Custom Default Configuration Wi-Fi/Passwords/IP)'
         required: true
         type: string
         default: '{"lanip":"192.168.0.1","signaccount":"admin","signpassword":"admin","wifi2gssid":"Padavan","wifi2gpsk":"1234567890","wifi5gssid":"Padavan-5G","wifi5gpsk":"1234567890"}'
@@ -257,7 +259,7 @@ jobs:
             . variables
           fi
           
-          echo "PADAVAN_REPO=https://github.com/TWShiyuLiou1997/padavan-ng" >> $GITHUB_ENV
+          echo "PADAVAN_REPO=https://github.com/lucktu/padavan_TW641" >> $GITHUB_ENV
           echo "PADAVAN_BRANCH=master" >> $GITHUB_ENV
           echo "PADAVAN_COMMIT=HEAD" >> $GITHUB_ENV
           
@@ -276,7 +278,7 @@ jobs:
         run: |
           echo "::group::Git Clone"
           git config --global --add safe.directory '*'
-          git clone -b "$PADAVAN_BRANCH" "$PADAVAN_REPO"
+          git clone -b "$PADAVAN_BRANCH" "$PADAVAN_REPO" padavan-ng
           if [ "$PADAVAN_COMMIT" != "HEAD" ] && [ ! -z "$PADAVAN_COMMIT" ]; then
             git -C padavan-ng checkout "$PADAVAN_COMMIT"
           fi
@@ -315,12 +317,7 @@ jobs:
             # 1. [體積優化] 強制開啟 Size Optimization
             sed -i "s/#CONFIG_CC_OPTIMIZE_FOR_SIZE=y/CONFIG_CC_OPTIMIZE_FOR_SIZE=y/g" "$FINAL_CONFIG"
          
-            # 2. [基礎切除] 停用 USB, 檔案系統, Swap, 媒體驅動
-            for feat in USB ANTFS FAT EXFAT EXT2 EXT3 EXT4 XFS HFS FUSE SWAP BACKPORTED; do
-              sed -i "s/CONFIG_FIRMWARE_ENABLE_${feat}=y/CONFIG_FIRMWARE_ENABLE_${feat}=n/gi" "$FINAL_CONFIG"
-            done
-         
-            # 3. [語言包精準控制] 
+            # 3. [語言包精準控制]
             sed -i "s/CONFIG_FIRMWARE_INCLUDE_LANG_EN=n/CONFIG_FIRMWARE_INCLUDE_LANG_EN=y/g" "$FINAL_CONFIG"
             sed -i "s/#CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/g" "$FINAL_CONFIG"
             sed -i "s/CONFIG_FIRMWARE_INCLUDE_LANG_CN=n/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/g" "$FINAL_CONFIG"
@@ -331,21 +328,15 @@ jobs:
             # 目標：不管該選項原本是 =y, =m, 還是 # is not set，通通強制改為 =n
             echo "::group::Absolute Disable Modules"
             modules=(
-              CIFS NTFS_3G LPRD U2EC USBIP HDPARM PARTED SMBD WINS SMBD_SYSLOG TESTPARM 
-              FTPD FTPD_SSL NFSD NFSC
-              UVC HID SERIAL AUDIO FIREFLY XUPNPD MINIDLNA FFMPEG_NEW 
-              RPL2TP EAP_PEAP OPENVPN SSWAN WIREGUARD AMNEZIAWG ZEROTIER EOIP XFRM
+              WIREGUARD AMNEZIAWG ZEROTIER EOIP XFRM
               SHADOWSOCKS XRAY V2RAY TROJAN SSOBFS SINGBOX NAIVEPROXY
               REDSOCKS SRELAY MENTOHUST FRPC FRPS TOR TOR_GEOIP TOR_GEOIPV6
               PRIVOXY NFQWS
-              IPSET DNSCRYPT STUBBY DOH QUIC QUIC_NGTCP2 NDISC6_RDISC6
-              ADBYBY DNSFORWARDER SMARTDNS ADGUARDHOME WPAD
-              LRZSZ IPERF3 DUMP1090 RTL_SDR SOCAT MTR 
-              IMQ IFB
-              ZRAM ADB LUA SQM ALDRIVER SCUTCLIENT GDUT_DRCOM DOGCOM MINIEAP 
+              DNSCRYPT STUBBY DOH QUIC QUIC_NGTCP2 NDISC6_RDISC6
+              DNSFORWARDER SMARTDNS ADGUARDHOME WPAD
+              ZRAM ADB LUA ALDRIVER SCUTCLIENT GDUT_DRCOM DOGCOM MINIEAP 
               NJIT_CLIENT SOFTETHERVPN_SERVER SOFTETHERVPN_CLIENT SOFTETHERVPN_CMD
               DROPBEAR DROPBEAR_FAST_CODE VLMCSD TTYD MSD_LITE
-              DDNS_SSL
             )
          
             for mod in "${modules[@]}"; do
